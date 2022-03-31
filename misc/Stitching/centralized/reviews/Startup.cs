@@ -39,7 +39,7 @@ namespace Demo.Reviews
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGraphQL($"/subgraph", "subgraph")
+                endpoints.MapGraphQL($"/subgraph-schema", "subgraph")
                       .WithOptions(
                        new GraphQLServerOptions
                        {
