@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -20,6 +21,10 @@ namespace Demo.Accounts
                 .AddSingleton<UserRepository>()
                 .AddGraphQLServer()
                 .AddQueryType<Query>();
+
+            services 
+                .AddGraphQLServer("subgraph")
+                .AddQueryType<SubQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +39,17 @@ namespace Demo.Accounts
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGraphQL($"/subgraph", "subgraph")
+                         .WithOptions(
+                          new GraphQLServerOptions
+                          {
+                              AllowedGetOperations = AllowedGetOperations.Query,
+                              EnableGetRequests = true,
+                              EnableMultipartRequests = false,
+                              EnableSchemaRequests = true,
+
+                          }
+                         );
                 endpoints.MapGraphQL();
             });
         }
