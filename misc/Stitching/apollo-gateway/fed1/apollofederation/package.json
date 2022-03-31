@@ -1,0 +1,24 @@
+{
+  "name": "apollofederation",
+  "version": "1.0.0",
+  "description": "Apollo Federation",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "apollo"
+  ],
+  "author": "Vijayakumar K",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/gateway": "^2.0.0-preview.7",
+    "apollo-server": "^3.6.6",
+    "dotenv": "^16.0.0",
+    "graphql": "^16.3.0"
+  },
+  "devDependencies": {
+    "@apollo/rover": "^0.4.8",
+    "apollo": "^2.33.9"
+  }
+}

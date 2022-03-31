@@ -27,22 +27,6 @@ namespace Demo.Reviews
 
     public class SubGraph
     {
-        public String sdl { get; set; } = @"schema {
-  query: Query
-    }
-
-    type Product
-    {
-        upc: Int!
-  name: String!
-  price: Int!
-  weight: Int!
-}
-
-    type Query
-    {
-        topProducts(first: Int!): [Product!]!
-  product(upc: Int!): Product!
-}";
+        public String sdl { get; set; } = System.IO.File.ReadAllText("./reviews.graphql");
     }
 }

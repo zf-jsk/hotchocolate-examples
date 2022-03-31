@@ -1,0 +1,63 @@
+APOLLO_KEY=service:My-Graph-2-m0zjgo:RMvQLjubTe7W48M-f1UNOg
+		   service:My-Graph-2-m0zjgo:lYwAyejuYfXgbU9m4WGW7w	
+APOLLO_GRAPH_REF=My-Graph-2-m0zjgo@current
+APOLLO_SCHEMA_REPORTING=true
+
+APOLLO_KEY=service:techgraph-6l8k0c:9Wlg1T0cAx9ukH7CH8_cYQ
+APOLLO_GRAPH_REF=techgraph-6l8k0c@current
+APOLLO_SCHEMA_REPORTING=true
+
+
+---Vwapie
+
+APOLLO_KEY=service:vwapiegrapgh:KQSXpZCqAkSVQ4XDd_E3rQ
+APOLLO_GRAPH_REF=vwapiegrapgh@current
+APOLLO_SCHEMA_REPORTING=true
+
+--Stitching
+
+APOLLO_KEY=service:stitchinggrapgh:4uu44H9TViBhBgyv4iBZJQ
+APOLLO_GRAPH_REF=stitchinggrapgh@current
+APOLLO_SCHEMA_REPORTING=true
+
+ 
+
+rover subgraph publish techgraph-6l8k0c@current  --routing-url https://rover.apollo.dev/quickstart/products/graphql --schema ./products.graphql --name products --convert
+
+rover subgraph publish techgraph-6l8k0c@current  --routing-url https://rover.apollo.dev/quickstart/reviews/graphql --schema ./reviews.graphql --name reviews --convert
+
+
+rover subgraph publish techgraph-6l8k0c@current  --routing-url http://localhost:5002/playground/../graph --schema ./Product.graphql --name Product --convert
+
+
+$OutputEncoding = [System.Console]::OutputEncoding = [System.Console]::InputEncoding = [System.Text.Encoding]::UTF8
+$PSDefaultParameterValues['*:Encoding'] = 'utf8'
+
+
+rover fed2 supergraph compose --config ./supergraph-config.yaml
+
+rover fed2 supergraph compose --config ./supergraph-config.yaml > supergraph.graphql
+
+
+
+
+
+Step1 
+
+HotChoclate Gateway--HotChoclate Service
+
+http://localhost:5004/playground/		--http://localhost:5000/playground/
+										--http://localhost:5001/playground/
+										
+										
+										
+Stitching
+---------
+
+rover subgraph publish stitchinggrapgh@current  --routing-url http://localhost:5051/graphql --schema ./accounts.graphql --name accounts --convert
+
+rover subgraph publish stitchinggrapgh@current  --routing-url http://localhost:5052/graphql --schema ./inventory.graphql --name inventory --convert
+
+rover subgraph publish stitchinggrapgh@current  --routing-url http://localhost:5053/graphql --schema ./products.graphql --name products --convert
+
+rover subgraph publish stitchinggrapgh@current  --routing-url http://localhost:5054/graphql --schema ./reviews.graphql --name reviews --convert

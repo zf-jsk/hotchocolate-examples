@@ -1,0 +1,17 @@
+subgraphs: 
+  accounts: 
+    routing_url : "http://localhost:5051/graphql"
+    schema: 
+      file: ./accounts.graphql
+  inventory: 
+    routing_url: "http://localhost:5052/graphql"
+    schema: 
+      subgraph_url: "http://localhost:5052/subgraph"
+  products: 
+    routing_url: "http://localhost:5053/graphql"
+    schema: 
+      subgraph_url: "http://localhost:5053/subgraph"
+  reviews: 
+    routing_url: "http://localhost:5054/graphql"
+    schema: 
+      subgraph_url: "http://localhost:5054/subgraph"
