@@ -27,3 +27,12 @@ The gateway will automatically detect if your downstream service exposes a confi
 
 Another more powerful solution is to publish schema configurations to Redis. This will keep the schema of your downstream service clean and allow you to hot-reload the gateway schema whenever there is a change in the downstream services. Moreover, we will keep the schema configuration on Redis. If you have a problem with your downstream service and it becomes offline, the gateway schema definition is no longer affected.
 
+
+[x] Schema stiching
+[ ] Logging
+[ ] Correlation ID Management
+[ ] HTTP Headers Propogation
+[ ] Proxying
+[ ] Caching
+[ ] Inline token validation 
+[ ] Paging, Sorting, Filtering
