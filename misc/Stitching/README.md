@@ -17,7 +17,7 @@ The folder `centralized` shows you a schema stitching example where we put the s
 [x] Schema stiching
 [ ] Logging
 [ ] Correlation ID Management
-[ ] HTTP Headers Propogation
+[x] HTTP Headers Propogation
 [ ] Proxying
 [ ] Caching
 [ ] Inline token validation 
