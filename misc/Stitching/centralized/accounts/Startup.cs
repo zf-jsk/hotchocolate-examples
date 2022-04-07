@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
 namespace Demo.Accounts
@@ -17,14 +20,17 @@ namespace Demo.Accounts
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            
             services
                 .AddSingleton<UserRepository>()
                 .AddGraphQLServer()
                 .AddQueryType<Query>();
 
+
             services 
                 .AddGraphQLServer("subgraph")
-                .AddQueryType<SubQuery>();
+                .AddQueryType<SubQuery>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,20 +40,27 @@ namespace Demo.Accounts
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseRouting();
-
+            app.Use(async (context, next) =>
+            {
+                foreach (String header in context.Request.Headers.Keys)
+                {
+                    Console.WriteLine(header + ":" + context.Request.Headers[header]);
+                }
+                //await context.Response.WriteAsync("");
+                await next();
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGraphQL($"/subgraph-schema", "subgraph")
+                          
                          .WithOptions(
                           new GraphQLServerOptions
                           {
                               AllowedGetOperations = AllowedGetOperations.Query,
                               EnableGetRequests = true,
                               EnableMultipartRequests = false,
-                              EnableSchemaRequests = true,
-
+                              EnableSchemaRequests = true
                           }
                          );
                 endpoints.MapGraphQL();

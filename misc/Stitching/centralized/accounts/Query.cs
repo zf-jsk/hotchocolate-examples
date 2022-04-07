@@ -1,13 +1,23 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using HotChocolate;
+using Microsoft.AspNetCore.Http;
 
 namespace Demo.Accounts
 {
     public class Query
     {
-        public IEnumerable<User> GetUsers([Service] UserRepository repository) =>
-            repository.GetUsers();
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public  Query(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+        public IEnumerable<User> GetUsers( [Service] UserRepository repository)
+        {
+            return repository.GetUsers();
+        }
+            
 
         public User GetUser(int id, [Service] UserRepository repository) => 
             repository.GetUser(id);
