@@ -2,7 +2,18 @@
   query: Query
 }
 
-type Product {
+enum CacheControlScope {
+PUBLIC
+PRIVATE
+}
+
+directive @cacheControl(
+maxAge: Int
+scope: CacheControlScope
+inheritMaxAge: Boolean
+) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
+
+type Product @cacheControl(maxAge: 10){
   upc: Int!
   name: String!
   price: Int!

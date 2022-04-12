@@ -5,6 +5,17 @@ schema
   query: Query
 }
 
+enum CacheControlScope {
+PUBLIC
+PRIVATE
+}
+
+directive @cacheControl(
+maxAge: Int
+scope: CacheControlScope
+inheritMaxAge: Boolean
+) on FIELD_DEFINITION | OBJECT | INTERFACE | UNION
+
 directive @core(as: String, feature: String!, for: core__Purpose) repeatable on SCHEMA
 
 """
@@ -44,6 +55,11 @@ directive @stream(
   label: String
 ) on FIELD
 
+enum CacheControlScope {
+  PRIVATE
+  PUBLIC
+}
+
 """The `DateTime` scalar represents an ISO-8601 compliant date time type."""
 scalar DateTime @specifiedBy(url: "https://www.graphql-scalars.com/date-time")
 
@@ -67,8 +83,8 @@ type Query {
   reviewsByProduct(upc: Int!): [Review!]! @join__field(graph: REVIEWS)
   shippingEstimate(price: Int!, weight: Int!): Float! @join__field(graph: INVENTORY)
   topProducts(first: Int!): [Product!]! @join__field(graph: PRODUCTS)
-  user(id: Int!): User! @join__field(graph: ACCOUNTS)
-  users: [User!]! @join__field(graph: ACCOUNTS)
+  user(id: Int!): User! @join__field(graph: ACCOUNTS) @cacheControl(maxAge: 3000000)
+  users: [User!]! @join__field(graph: ACCOUNTS) @cacheControl(maxAge: 3000000)
 }
 
 type Review {
@@ -78,7 +94,7 @@ type Review {
   upc: Int!
 }
 
-type User {
+type User  @cacheControl(maxAge: 3000000) {
   birthdate: DateTime!
   id: Int!
   name: String!
@@ -100,7 +116,7 @@ enum core__Purpose {
 scalar join__FieldSet
 
 enum join__Graph {
-  ACCOUNTS @join__graph(name: "accounts" url: "http://localhost:5051/graphql")
+  ACCOUNTS @join__graph(name: "accounts" url: "http://tvs.localtest.me/accounts/graphql")
   INVENTORY @join__graph(name: "inventory" url: "http://localhost:5052/graphql")
   PRODUCTS @join__graph(name: "products" url: "http://localhost:5053/graphql")
   REVIEWS @join__graph(name: "reviews" url: "http://localhost:5054/graphql")
