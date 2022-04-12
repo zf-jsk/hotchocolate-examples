@@ -1,0 +1,18 @@
+{
+  "name": "accounts",
+  "version": "1.0.0",
+  "description": "Accounts Graph using apollo server",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "accounts"
+  ],
+  "author": "Vijayakumar K",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.6.7",
+    "graphql": "^16.3.0"
+  }
+}
