@@ -1,6 +1,7 @@
 const { ApolloServer } = require('apollo-server');
 const { ApolloGateway, RemoteGraphQLDataSource } = require('@apollo/gateway');
 const { readFileSync } = require('fs');
+const { ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
 
 const supergraphSdl = readFileSync('./supergraph.graphql').toString();
 
@@ -25,6 +26,12 @@ const gateway = new ApolloGateway({
   buildService({ name, url }) {
     return new AuthenticatedDataSource({ url });
   },
+  buildService({ name, url }) {
+    return new RemoteGraphQLDataSource({
+      url,
+      honorSubgraphCacheControlHeader: name === "accounts" ? false : true
+    });
+  }
 });
 
 const server = new ApolloServer({
@@ -39,6 +46,11 @@ const server = new ApolloServer({
     // Add the user ID to the context
     return token ;
   },
+  plugins: [
+    ApolloServerPluginLandingPageGraphQLPlayground({
+      // options
+    })
+  ]
 });
 
 server.listen().then(({ url }) => {

@@ -1,5 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
-
+const { ApolloServerPluginCacheControl } = require("apollo-server-core");
+const { ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
 // your data.
@@ -42,11 +43,11 @@ inheritMaxAge: Boolean
 
 
 type Query {
-  users: [User]
-  user(id: Int): User 
+  users: [User]	@cacheControl(maxAge: 600, scope: PUBLIC)
+  user(id: Int): User @cacheControl(maxAge: 600, scope: PUBLIC)
 }
 
-type User @cacheControl(maxAge: 30){
+type User {
   id: Int!
   name: String
   birthdate: DateTime!
@@ -68,17 +69,42 @@ scalar DateTime @specifiedBy(url: "https:\/\/www.graphql-scalars.com\/date-time"
 
 const resolvers = {
   Query: {
-    users: ()=>{
+	  
+    users: (info)=>{
+		console.log(info);
+		//info.cacheControl.setCacheHint({ maxAge: 60, scope: 'PUBLIC' });
+     
+		 console.log("application called");
 		return usersData;
 	},
-	 user: (id)=>{
+	 user: (arg1, { id }, arg2, info)=>{
 		 console.log(id);
-		return usersData.filter(obj=>obj.id==1);
+		 //console.log(info);
+		info.cacheControl.setCacheHint({ maxAge: 600, scope: 'PUBLIC' });
+		 //return find(usersData, { id });
+		  console.log(info.cacheControl);
+		  console.log("application called");
+		return usersData[0];
 	}
   },
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer(
+			{ 	typeDefs, 
+				resolvers ,
+				plugins: [ 
+							ApolloServerPluginLandingPageGraphQLPlayground(
+												{ 
+													// options
+												}),
+												ApolloServerPluginCacheControl({ defaultMaxAge: 5 }),
+							ApolloServerPluginCacheControl({
+      // Cache everything for 1 second by default.
+      defaultMaxAge: 1000,
+      // Don't send the `cache-control` response header.
+      calculateHttpHeaders: false,
+    })],});
+ 
 
 const hostname = 'localhost';
 const port = 4051;
