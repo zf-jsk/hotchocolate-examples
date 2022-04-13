@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "description": "This project shows a Health Insurance server app to illustrate how to do cool things like: \n- login and return data\n- perform resolver look ahead performance improvements",
+  "dependencies": {
+    "apollo-server": "2.9.7",
+    "apollo-server-plugin-response-cache": "0.4.1",
+    "dataloader": "1.4.0",
+    "graphql": "14.5.8",
+    "graphql-tag": "^2.10.1",
+    "lodash": "4.17.15"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js localhost 4000"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/graphql": "14.0.1",
+    "nodemon": "1.18.4"
+  }
+}
