@@ -1,6 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server');
-const { ApolloServerPluginCacheControl } = require("apollo-server-core");
-const { ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
+//const { ApolloServerPluginCacheControl } = require("apollo-server-core");
+//const { ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
 
 const responseCachePlugin = require('apollo-server-plugin-response-cache');
 // A schema is a collection of type definitions (hence "typeDefs")
@@ -49,9 +49,9 @@ type Query {
   user(id: Int): User @cacheControl(maxAge: 600, scope: PUBLIC)
 }
 
-type User {
-  id: Int! @cacheControl(maxAge: 30)
-  name: String @cacheControl(maxAge: 30)
+type User @cacheControl(maxAge: 10) {
+  id: Int! 
+  name: String 
   birthdate: DateTime!
   username: String!
 }
@@ -119,7 +119,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   plugins: [
-	ApolloServerPluginLandingPageGraphQLPlayground(
+	/*ApolloServerPluginLandingPageGraphQLPlayground(
 												{ 
 													// options
 												}),
@@ -128,7 +128,7 @@ const server = new ApolloServer({
       defaultMaxAge: 1000,
       // Don't send the `cache-control` response header.
      // calculateHttpHeaders: false,
-    }),
+    }),*/
 	responseCachePlugin
   ],
 });
