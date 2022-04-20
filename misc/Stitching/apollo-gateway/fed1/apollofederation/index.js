@@ -2,6 +2,7 @@ const { ApolloServer } = require('apollo-server');
 const { ApolloGateway, RemoteGraphQLDataSource } = require('@apollo/gateway');
 const { readFileSync } = require('fs');
 const { ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
+const responseCachePlugin = require('apollo-server-plugin-response-cache');
 
 const supergraphSdl = readFileSync('./supergraph.graphql').toString();
 
@@ -49,10 +50,18 @@ const server = new ApolloServer({
   plugins: [
     ApolloServerPluginLandingPageGraphQLPlayground({
       // options
-    })
+    }),
+    responseCachePlugin
   ]
 });
 
-server.listen().then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
+const hostname = 'localhost';
+const port = 4000;
+// The `listen` method launches a web server.
+//server.listen().then(({ url }) => {
+ // console.log(`🚀  Server ready at ${url}`);
+//})
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
 });

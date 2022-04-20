@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using System.Net.Http;
 using HotChocolate.AspNetCore;
+using HotChocolate.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,11 +29,16 @@ namespace Demo.Gateway
             services
                 .AddGraphQLServer()
                 //.AddQueryType(d => d.Name("Query"))
-                .AddRemoteSchema(Accounts, ignoreRootTypes: false)
+                .AddRemoteSchema(Accounts, ignoreRootTypes: true)
                 .AddRemoteSchema(Inventory, ignoreRootTypes: false)
                 .AddRemoteSchema(Products, ignoreRootTypes: false)
                 .AddRemoteSchema(Reviews, ignoreRootTypes: false)
-                .AddTypeExtensionsFromFile("./Stitching.graphql");
+                .AddType(new AnyType("Upload"))
+                .PublishSchemaDefinition(c => c
+                    .SetName("products")
+                    .RenameType("Category", "ProductCategory")
+                    .AddTypeExtensionsFromFile("./Stitching.graphql"));
+               //.AddTypeExtensionsFromFile("./Stitching.graphql");
                 // .InitializeOnStartup();
         }
 

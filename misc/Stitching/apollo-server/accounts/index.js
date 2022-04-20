@@ -82,7 +82,7 @@ const resolvers = {
 	 user: (arg1, { id }, arg2, info)=>{
 		 console.log(id);
 		 //console.log(info);
-		info.cacheControl.setCacheHint({ maxAge: 600, scope: 'PUBLIC' });
+		//info.cacheControl.setCacheHint({ maxAge: 600, scope: 'PUBLIC' });
 		 //return find(usersData, { id });
 		  console.log(info.cacheControl); 
 	  var newArray = usersData.filter(function (el)

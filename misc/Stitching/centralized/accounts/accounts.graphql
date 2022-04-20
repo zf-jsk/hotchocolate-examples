@@ -1,5 +1,13 @@
 ﻿schema {
-  query: Query
+  query: Query  
+  mutation:GQLServiceM
+}
+
+
+ extend type GQLServiceM {
+	"Upload file documents"
+	documents("Relative storage path" relativePath: String,"Multipart document file content" files: [Upload]): UploadedDocumentDetails
+
 }
 
 type Query {
@@ -25,3 +33,5 @@ directive @stream("If this argument label has a value other than null, it will b
 
 "The `DateTime` scalar represents an ISO-8601 compliant date time type."
 scalar DateTime @specifiedBy(url: "https:\/\/www.graphql-scalars.com\/date-time")
+
+scalar Upload

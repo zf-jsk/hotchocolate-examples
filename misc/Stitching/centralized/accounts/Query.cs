@@ -1,11 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 using HotChocolate;
+using HotChocolate.Types;
 using Microsoft.AspNetCore.Http;
 
 namespace Demo.Accounts
 {
+    public class GQLServiceM
+    {
+        private readonly HttpClient _httpClient;
+        public async Task<UploadedDocumentDetails> documents(String relativePath, IList<IFile> files)
+        {
+            UploadedDocumentDetails uploadedDocumentDetails = new UploadedDocumentDetails();
+            int count=files.Count;
+            uploadedDocumentDetails.DocId = relativePath;
+            uploadedDocumentDetails.DocUrl = "https://";
+            return uploadedDocumentDetails;
+        }
+    }
     public class Query
     {
         private readonly IHttpContextAccessor _httpContextAccessor;

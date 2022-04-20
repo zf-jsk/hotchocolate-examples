@@ -23,3 +23,11 @@ extend type Product {
 extend type User {
   reviews: [Review] @delegate(schema: "reviews" path:"reviewsByAuthor(authorId: $fields:id)")
 }
+
+extend type GQLServiceM{
+"Upload file documents"
+	documents("Relative storage path" relativePath: String,"Multipart document file content" files: Upload): UploadedDocumentDetails
+
+}
+# A meta for upload files   mutation: GQLServiceM
+scalar Upload

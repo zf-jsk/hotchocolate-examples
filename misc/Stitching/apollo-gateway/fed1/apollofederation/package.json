@@ -14,6 +14,7 @@
   "dependencies": {
     "@apollo/gateway": "^2.0.0-preview.7",
     "apollo-server": "^3.6.6",
+    "apollo-server-plugin-response-cache": "^3.5.2",
     "dotenv": "^16.0.0",
     "graphql": "^16.3.0"
   },
