@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Accounts;
 using HotChocolate.AspNetCore;
 using HotChocolate.Types;
 using Microsoft.AspNetCore.Builder;
@@ -26,6 +27,8 @@ namespace Demo.Accounts
             services
                 .AddSingleton<UserRepository>()
                 .AddGraphQLServer()
+                .AddDirectiveType<MyDirectiveType>()
+
                 .AddQueryType<Query>()
                 .AddMutationType<GQLServiceM>()
                 .AddType<UploadType>();
