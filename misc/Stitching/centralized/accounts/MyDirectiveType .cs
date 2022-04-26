@@ -2,14 +2,26 @@
 
 namespace Accounts
 {
-
-    public class MyDirectiveType: DirectiveType
+    //Input Type
+    public class MyDirective
+    {
+        public string Name { get; set; }
+    }
+    public class MyDirectiveType: DirectiveType<MyDirective>
 {
-    protected override void Configure(IDirectiveTypeDescriptor descriptor)
+    protected override void Configure(IDirectiveTypeDescriptor<MyDirective> descriptor)
     {
         descriptor.Name("my");
         descriptor.Location(DirectiveLocation.Field);
-        descriptor.Repeatable();
-    }
+        descriptor
+                .Argument("name")
+                .Type<NonNullType<StringType>>();
+        descriptor.Use(next => context =>
+        {
+            //context.Result = 1;
+            return next.Invoke(context);
+        });
+
+        }
 }
 }
