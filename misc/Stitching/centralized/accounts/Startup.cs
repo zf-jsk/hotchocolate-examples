@@ -27,8 +27,8 @@ namespace Demo.Accounts
             services
                 .AddSingleton<UserRepository>()
                 .AddGraphQLServer()
-                .AddDirectiveType<MyDirectiveType>()
-
+                .AddDirectiveType<ToUpperDirectiveType>()
+                
                 .AddQueryType<Query>()
                 .AddMutationType<GQLServiceM>()
                 .AddType<UploadType>();
