@@ -1,3 +1,4 @@
+using Demo.Reviews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,30 @@ namespace Demo.Accounts
         { 
             _users = new User[]
             {
-                new User(1, "Ada Lovelace", new DateTime(1815, 12, 10), "@ada"),
-                new User(2, "Alan Turing", new DateTime(1912, 06, 23), "@complete")
+                new User()
+                {
+                    Id = 1,
+                    Name = "Ada Lovelace",
+                    Birthdate=new DateTime(1815, 12, 10),
+                    UserName="@ada"
+                },
+                new User()
+                {
+                    Id=2,
+                    Name ="Alan Turing",
+                    Birthdate= new DateTime(1912, 06, 23),
+                    UserName="@complete"
+                }
             }.ToDictionary(t => t.Id);
 
         }
 
-        public User GetUser(int id) => _users[id];
+        public User GetUser(int id)
+        {
+            var user = _users[id];
+            user.reviews = new ReviewRepository().GetReviewsByAuthorId(id).ToArray();
+            return user;
+        }
 
         public IEnumerable<User> GetUsers() => _users.Values;
     }

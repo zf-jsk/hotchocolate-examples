@@ -20,7 +20,16 @@ type User {
   name: String!
   birthdate: DateTime!
   username: String!
+ reviews: [Review!]!
 }
+
+type Review {
+  id: Int!
+  authorId: Int!
+  upc: Int!
+  body: String!
+}
+
 "My Custom Directive"
 directive @toUpper on FIELD
 
