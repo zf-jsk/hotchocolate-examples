@@ -7,7 +7,7 @@ namespace Accounts
     {
         protected override void Configure(IObjectTypeDescriptor<User> descriptor)
         {
-            descriptor.Field(t => t.UserName)
+            descriptor.Field(t => t.username)
                 .Use(next => async context =>
                 {
                     await next(context);

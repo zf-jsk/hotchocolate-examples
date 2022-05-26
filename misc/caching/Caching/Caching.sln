@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaFirst", "SchemaFirst\SchemaFirst.csproj", "{B9094AB4-F9A8-42A9-A724-F32EB72937E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Core", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Core\src\Core\HotChocolate.Core.csproj", "{BE7668F9-C079-456B-8AE7-FE6C3C2F4E3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Execution", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Core\src\Execution\HotChocolate.Execution.csproj", "{6A37E597-30F8-4D09-A281-75E3967EC6CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.AspNetCore", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\AspNetCore\src\AspNetCore\HotChocolate.AspNetCore.csproj", "{D3FB81BB-421D-490C-B842-F1132CF1C5E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Caching", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Caching\src\Caching\HotChocolate.Caching.csproj", "{DEAD2B6F-7026-495A-AB51-9235FFEFD3B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Caching.Http", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Caching\src\Caching.Http\HotChocolate.Caching.Http.csproj", "{9C7E4A6E-270D-44BA-BED3-8C2AD759E9AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9094AB4-F9A8-42A9-A724-F32EB72937E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9094AB4-F9A8-42A9-A724-F32EB72937E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9094AB4-F9A8-42A9-A724-F32EB72937E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9094AB4-F9A8-42A9-A724-F32EB72937E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE7668F9-C079-456B-8AE7-FE6C3C2F4E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE7668F9-C079-456B-8AE7-FE6C3C2F4E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE7668F9-C079-456B-8AE7-FE6C3C2F4E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE7668F9-C079-456B-8AE7-FE6C3C2F4E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A37E597-30F8-4D09-A281-75E3967EC6CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A37E597-30F8-4D09-A281-75E3967EC6CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A37E597-30F8-4D09-A281-75E3967EC6CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A37E597-30F8-4D09-A281-75E3967EC6CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3FB81BB-421D-490C-B842-F1132CF1C5E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3FB81BB-421D-490C-B842-F1132CF1C5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3FB81BB-421D-490C-B842-F1132CF1C5E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3FB81BB-421D-490C-B842-F1132CF1C5E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEAD2B6F-7026-495A-AB51-9235FFEFD3B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEAD2B6F-7026-495A-AB51-9235FFEFD3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEAD2B6F-7026-495A-AB51-9235FFEFD3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEAD2B6F-7026-495A-AB51-9235FFEFD3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C7E4A6E-270D-44BA-BED3-8C2AD759E9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C7E4A6E-270D-44BA-BED3-8C2AD759E9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C7E4A6E-270D-44BA-BED3-8C2AD759E9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7E4A6E-270D-44BA-BED3-8C2AD759E9AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCE3F188-2318-470F-90AD-B4A58881D73F}
+	EndGlobalSection
+EndGlobal

@@ -27,13 +27,13 @@ namespace Demo.Accounts
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        public IEnumerable<User> GetUsers( [Service] UserRepository repository)
+        public IEnumerable<User> Users( [Service] UserRepository repository)
         {
             return repository.GetUsers();
         }
             
 
-        public User GetUser(int id, [Service] UserRepository repository) => 
+        public User Getuser(int id, [Service] UserRepository repository) => 
             repository.GetUser(id);
     }
 

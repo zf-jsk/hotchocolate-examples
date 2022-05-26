@@ -1,24 +1,25 @@
 using Demo.Reviews;
 using System;
+using System.Linq;
 
 namespace Demo.Accounts
 {
     public class User
-    {
-        private Int32 _id { get; set; }
-        public int Id
+    { 
+        public int id
         {
-            get
-            {
-                return _id;
-            }
-            set { _id = value; }
+            get;
+            set;
         }
-        public string Name { get; set; }        
-        public DateTime Birthdate { get; set; }
-        public String UserName { get; set; }
+        public string name { get; set; }        
+        public DateTime birthdate { get; set; }
+        public String username { get; set; }
 
-        public Review[] reviews {get; set; }
+        //public Review[] reviews {get; set; }
+
+        public Review[] GetReviews(int id=5) { 
+            return new ReviewRepository().GetReviewsByAuthorId(id).ToArray(); ;
+        }
     }
    // public record User(int Id, string Name, DateTime Birthdate, string Username);
 }

@@ -1,16 +1,24 @@
 using Demo.Data;
 using Demo.Resolvers;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace Demo.Services
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
 
-builder.Services
-    .AddSingleton<PersonRepository>()
-    .AddGraphQLServer()
-    .AddDocumentFromFile("./Schema.graphql")
-    .AddResolver<Query>();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
+}
 
-var app = builder.Build();
 
-app.MapGraphQL();
-
-app.Run();

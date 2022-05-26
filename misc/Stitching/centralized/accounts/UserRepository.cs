@@ -15,26 +15,26 @@ namespace Demo.Accounts
             {
                 new User()
                 {
-                    Id = 1,
-                    Name = "Ada Lovelace",
-                    Birthdate=new DateTime(1815, 12, 10),
-                    UserName="@ada"
+                    id = 1,
+                    name = "Ada Lovelace",
+                    birthdate=new DateTime(1815, 12, 10),
+                    username="@ada"
                 },
                 new User()
                 {
-                    Id=2,
-                    Name ="Alan Turing",
-                    Birthdate= new DateTime(1912, 06, 23),
-                    UserName="@complete"
+                    id=2,
+                    name ="Alan Turing",
+                    birthdate= new DateTime(1912, 06, 23),
+                    username="@complete"
                 }
-            }.ToDictionary(t => t.Id);
+            }.ToDictionary(t => t.id);
 
         }
 
         public User GetUser(int id)
         {
             var user = _users[id];
-            user.reviews = new ReviewRepository().GetReviewsByAuthorId(id).ToArray();
+           // user.reviews = new ReviewRepository().GetReviewsByAuthorId(id).ToArray();
             return user;
         }
 

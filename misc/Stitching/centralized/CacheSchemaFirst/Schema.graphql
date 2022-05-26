@@ -1,0 +1,11 @@
+
+
+type Query {
+    persons: [Person!] @cacheControl(maxAge: 600)
+}
+
+
+type Person {
+    id:Int!
+    name: String!
+}

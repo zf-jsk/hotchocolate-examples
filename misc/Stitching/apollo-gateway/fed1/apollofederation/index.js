@@ -30,7 +30,8 @@ const gateway = new ApolloGateway({
   buildService({ name, url }) {
     return new RemoteGraphQLDataSource({
       url,
-      honorSubgraphCacheControlHeader: name === "accounts" ? false : true
+      
+      honorSubgraphCacheControlHeader: true
     });
   }
 });

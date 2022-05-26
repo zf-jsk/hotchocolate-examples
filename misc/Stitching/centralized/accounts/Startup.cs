@@ -27,11 +27,13 @@ namespace Demo.Accounts
             services
                 .AddSingleton<UserRepository>()
                 .AddGraphQLServer()
-                .AddDirectiveType<CacheDirectiveType>()
-                .AddDirectiveType<ToUpperDirectiveType>()
-                .AddQueryType<Query>()
-                .AddMutationType<GQLServiceM>()
-                .AddType<UploadType>();
+               //  .AddDirectiveType<CacheDirectiveType>()
+               //.AddDirectiveType<ToUpperDirectiveType>()
+               .AddDocumentFromFile("./accounts.graphql")
+               .AddResolver<Query>();
+               //.AddQueryType<Query>();
+                //.AddMutationType<GQLServiceM>()
+                //.AddType<UploadType>();
 
 
             services 
@@ -47,15 +49,15 @@ namespace Demo.Accounts
                 app.UseDeveloperExceptionPage();
             }
             app.UseRouting();
-            app.Use(async (context, next) =>
-            {
-                foreach (String header in context.Request.Headers.Keys)
-                {
-                    Console.WriteLine(header + ":" + context.Request.Headers[header]);
-                }
-                //await context.Response.WriteAsync("");
-                await next();
-            });
+            //app.Use(async (context, next) =>
+            //{
+            //    foreach (String header in context.Request.Headers.Keys)
+            //    {
+            //        Console.WriteLine(header + ":" + context.Request.Headers[header]);
+            //    }
+            //    //await context.Response.WriteAsync("");
+            //    await next();
+            //});
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGraphQL($"/subgraph-schema", "subgraph")
