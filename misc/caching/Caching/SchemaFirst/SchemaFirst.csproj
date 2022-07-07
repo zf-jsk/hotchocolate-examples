@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\AspNetCore\src\AspNetCore\HotChocolate.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Caching\src\Caching.Http\HotChocolate.Caching.Http.csproj" />
-    <ProjectReference Include="..\..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Caching\src\Caching\HotChocolate.Caching.csproj" />
-    <ProjectReference Include="..\..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Core\src\Core\HotChocolate.Core.csproj" />
-    <ProjectReference Include="..\..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Core\src\Execution\HotChocolate.Execution.csproj" />
+    <ProjectReference Include="..\..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\AspNetCore\src\AspNetCore\HotChocolate.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\Caching\src\Caching.Http\HotChocolate.Caching.Http.csproj" />
+    <ProjectReference Include="..\..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\Caching\src\Caching\HotChocolate.Caching.csproj" />
+    <ProjectReference Include="..\..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\Core\src\Core\HotChocolate.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\Core\src\Execution\HotChocolate.Execution.csproj" />
   </ItemGroup>
 
 </Project>

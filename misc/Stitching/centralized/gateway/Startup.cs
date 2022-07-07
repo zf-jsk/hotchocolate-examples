@@ -21,7 +21,7 @@ namespace Demo.Gateway
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient(Accounts, c => c.BaseAddress = new Uri("http://localhost:5051/graphql")).AddFiddler(true);
+            //services.AddHttpClient(Accounts, c => c.BaseAddress = new Uri("http://localhost:5051/graphql")).AddFiddler(true);
             services.AddHttpClient(Inventory, c => c.BaseAddress = new Uri("http://localhost:5052/graphql")).AddFiddler(true);
             services.AddHttpClient(Products, c => c.BaseAddress = new Uri("http://localhost:5053/graphql")).AddFiddler(true);
             services.AddHttpClient(Reviews, c => c.BaseAddress = new Uri("http://localhost:5054/graphql")).AddFiddler(true);
@@ -29,10 +29,10 @@ namespace Demo.Gateway
             services
                 .AddGraphQLServer()
                 //.AddQueryType(d => d.Name("Query"))
-                .AddRemoteSchema(Accounts, ignoreRootTypes: true)
-                .AddRemoteSchema(Inventory, ignoreRootTypes: false)
-                .AddRemoteSchema(Products, ignoreRootTypes: false)
-                .AddRemoteSchema(Reviews, ignoreRootTypes: false)
+                //.AddRemoteSchema(Accounts, ignoreRootTypes: true)
+                .AddRemoteSchema(Inventory, ignoreRootTypes: true)
+                .AddRemoteSchema(Products, ignoreRootTypes: true)
+                .AddRemoteSchema(Reviews, ignoreRootTypes: true)
                 .AddType(new AnyType("Upload"))
                 .PublishSchemaDefinition(c => c
                     .SetName("products")

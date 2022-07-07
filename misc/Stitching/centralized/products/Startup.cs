@@ -18,9 +18,10 @@ namespace Demo.Products
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddSingleton<ProductRepository>()
+                .AddSingleton<ProductRepository>()                
                 .AddGraphQLServer()
-                .AddQueryType<Query>();
+                .AddDocumentFromFile("./products.graphql")
+                .AddResolver<Query>();
             services
                .AddGraphQLServer("subgraph")
                .AddQueryType<SubQuery>();

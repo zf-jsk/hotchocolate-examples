@@ -9,11 +9,9 @@ builder.Services
             .AddSingleton<PersonRepository>()
             .AddGraphQLServer()
             .AddResolver<Query>()
-            .AddHttpQueryCache()
-            .UseQueryCachePipeline()
             .AddDocumentFromString(@"
         type Query {
-            users: [User!] @cacheControl(maxAge: 6000 scope: PUBLIC)
+            users: [User!] @cacheControl(maxAge: 6000 scope: PRIVATE)
         }
 type User  {
   birthdate: DateTime!
@@ -23,8 +21,9 @@ type User  {
 }
 
     ")
-            //.AddDocumentFromFile("./Schema.graphql")
-            .ModifyCacheControlOptions(options => { });
+                .UseQueryCachePipeline()
+                .AddHttpQueryCache();
+                //.ModifyCacheControlOptions(o => o.ApplyDefaults ); 
 
 WebApplication? app = builder.Build();
 

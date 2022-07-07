@@ -115,7 +115,7 @@ enum core__Purpose {
 scalar join__FieldSet
 
 enum join__Graph {
-  ACCOUNTS @join__graph(name: "accounts" url: "http://localhost:5274/graphql/")
+  ACCOUNTS @join__graph(name: "accounts" url: "http://localhost:4051/graphql")
   INVENTORY @join__graph(name: "inventory" url: "http://localhost:5052/graphql")
   PRODUCTS @join__graph(name: "products" url: "http://localhost:5053/graphql")
   REVIEWS @join__graph(name: "reviews" url: "http://localhost:5054/graphql")

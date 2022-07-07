@@ -1,4 +1,4 @@
-using Demo.Reviews;
+ 
 using System;
 using System.Linq;
 
@@ -17,9 +17,9 @@ namespace Demo.Accounts
 
         //public Review[] reviews {get; set; }
 
-        public Review[] GetReviews(int id=5) { 
-            return new ReviewRepository().GetReviewsByAuthorId(id).ToArray(); ;
-        }
+        //public Review[] GetReviews(int id=5) { 
+        //    return new ReviewRepository().GetReviewsByAuthorId(id).ToArray(); ;
+        //}
     }
    // public record User(int Id, string Name, DateTime Birthdate, string Username);
 }

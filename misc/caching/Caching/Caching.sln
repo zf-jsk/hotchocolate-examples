@@ -5,15 +5,15 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaFirst", "SchemaFirst\SchemaFirst.csproj", "{B9094AB4-F9A8-42A9-A724-F32EB72937E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Core", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Core\src\Core\HotChocolate.Core.csproj", "{BE7668F9-C079-456B-8AE7-FE6C3C2F4E3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Core", "..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\Core\src\Core\HotChocolate.Core.csproj", "{BE7668F9-C079-456B-8AE7-FE6C3C2F4E3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Execution", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Core\src\Execution\HotChocolate.Execution.csproj", "{6A37E597-30F8-4D09-A281-75E3967EC6CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Execution", "..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\Core\src\Execution\HotChocolate.Execution.csproj", "{6A37E597-30F8-4D09-A281-75E3967EC6CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.AspNetCore", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\AspNetCore\src\AspNetCore\HotChocolate.AspNetCore.csproj", "{D3FB81BB-421D-490C-B842-F1132CF1C5E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.AspNetCore", "..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\AspNetCore\src\AspNetCore\HotChocolate.AspNetCore.csproj", "{D3FB81BB-421D-490C-B842-F1132CF1C5E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Caching", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Caching\src\Caching\HotChocolate.Caching.csproj", "{DEAD2B6F-7026-495A-AB51-9235FFEFD3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Caching", "..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\Caching\src\Caching\HotChocolate.Caching.csproj", "{DEAD2B6F-7026-495A-AB51-9235FFEFD3B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Caching.Http", "..\..\..\..\hotchcoclate-cache\hotchocolate\src\HotChocolate\Caching\src\Caching.Http\HotChocolate.Caching.Http.csproj", "{9C7E4A6E-270D-44BA-BED3-8C2AD759E9AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolate.Caching.Http", "..\..\..\..\HotChoclate-ttecache\hotchocolate\src\HotChocolate\Caching\src\Caching.Http\HotChocolate.Caching.Http.csproj", "{9C7E4A6E-270D-44BA-BED3-8C2AD759E9AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,7 +3,7 @@
 }
 
 type Query {
-  reviews: [Review!]!
+  reviews: [Review!]! @cacheControl(maxAge: 600, scope: PUBLIC)
   reviewsByAuthor(authorId: Int!): [Review!]!
   reviewsByProduct(upc: Int!): [Review!]!
 }
