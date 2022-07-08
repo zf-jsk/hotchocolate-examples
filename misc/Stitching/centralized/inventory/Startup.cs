@@ -21,6 +21,8 @@ namespace Demo.Inventory
                 .AddSingleton<InventoryInfoRepository>()
                 .AddGraphQLServer()
                 .AddQueryType<Query>();
+                //.AddDocumentFromFile("./inventory.graphql")
+                //.AddResolver<Query>();
 
             services
                .AddGraphQLServer("subgraph")

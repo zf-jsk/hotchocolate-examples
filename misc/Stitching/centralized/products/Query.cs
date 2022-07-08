@@ -7,14 +7,14 @@ namespace Demo.Products
 {
     public class Query
     {
-        [UseGQLResponseCache]
+       // [UseGQLResponseCache]
 
         public IEnumerable<Product> GetTopProducts(
             int first, 
             [Service] ProductRepository repository) =>
             repository.GetTopProducts(first);
 
-        [UseGQLResponseCache] 
+       // [UseGQLResponseCache] 
         public Product GetProduct(
             int upc, 
             [Service] ProductRepository repository)

@@ -13,6 +13,25 @@ namespace Demo.Inventory
 
         public double GetShippingEstimate(int price, int weight) =>
             price > 1000 ? 0 : weight * 0.5;
+        public IEnumerable<Product> GetTopProducts(
+           int first,
+           [Service] InventoryInfoRepository repository) =>
+           repository.GetTopProducts(first);
+
+        //[UseGQLResponseCache] 
+        public Product GetProduct(
+            int upc,
+            [Service] InventoryInfoRepository repository)
+        {
+            return repository.GetProduct(upc);
+        }
+         
+        //public IEnumerable<Product> GetProducts(
+        //    Product product,
+        //    [Service] InventoryInfoRepository repository)
+        //{
+        //    return repository.GetTopProducts(3);
+        //}
     }
 
 

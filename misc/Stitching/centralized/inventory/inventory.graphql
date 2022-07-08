@@ -7,9 +7,20 @@ type InventoryInfo {
   isInStock: Boolean!
 }
 
+type Product  {
+  upc: Int!
+  name: String!
+  price: Int!
+  weight: Int!
+}
+
+
 type Query {
   inventoryInfo(upc: Int!): InventoryInfo!
   shippingEstimate(price: Int! weight: Int!): Float!
+  topProducts(first: Int!): [Product!]!
+  product(upc: Int!): Product!	
+  
 }
 
 "The `@defer` directive may be provided for fragment spreads and inline fragments to inform the executor to delay the execution of the current fragment to indicate deprioritization of the current fragment. A query with `@defer` directive will cause the request to potentially return multiple responses, where non-deferred data is delivered in the initial response and data deferred is delivered in a subsequent response. `@include` and `@skip` take precedence over `@defer`."
